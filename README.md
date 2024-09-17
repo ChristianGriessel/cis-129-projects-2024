@@ -1,3 +1,3 @@
 #GLHF
 
-Basic hello world Github repository for CIS129
+This is Christian Griessel's Github repository for CIS129
