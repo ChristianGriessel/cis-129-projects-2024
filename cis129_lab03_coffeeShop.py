@@ -5,7 +5,7 @@
 
 def main():
     coffee_muffin_values = coffee_muffin_counter()
-    printer(coffee_muffin_values[0], coffee_muffin_values[1])
+    printer(coffee_muffin_values[0], coffee_muffin_values[1], coffee_muffin_values[2], coffee_muffin_values[3])
 
 
 def coffee_muffin_counter():
@@ -29,37 +29,62 @@ def coffee_muffin_counter():
                 if number_of_coffees < 0 or number_of_coffees > 50:
                     print("UNREALISTIC COFFEE COUNT ENTER A NUMBER BETWEEN 0 AND 50 OR PREPARE TO BE DESTROYED")
                 else:
-                    break # Assuming a value for muffin and a value for coffee loop is broken and values are returned
+                    break 
+            except ValueError:
+                print("THIS IS NOT A NUMBER, PREPARE TO BE DISSOLVED")
+
+        while True:
+            try:
+                number_of_human_fingers = int(input("HOW MANY HUMAN FINGERS IN THIS PURCHASE?: ")) # Forces int and forces a realistic number
+                if number_of_human_fingers < 0 or number_of_human_fingers > 50:
+                    print("UNREALISTIC HUMAN FINGER COUNT ENTER A NUMBER BETWEEN 0 AND 50 OR PREPARE TO BE DESTROYED")
+                else:
+                    break 
+            except ValueError:
+                print("THIS IS NOT A NUMBER, PREPARE TO BE DISSOLVED")
+
+        while True:
+            try:
+                number_of_uranium = int(input("HOW MANY POUNDS OF URANIUM IN THIS PURCHASE?: ")) # Forces int and forces a realistic number
+                if number_of_uranium < 0 or number_of_uranium > 50:
+                    print("UNREALISTIC POUNDS OF URANIUM COUNT ENTER A NUMBER BETWEEN 0 AND 50 OR PREPARE TO BE DESTROYED")
+                else:
+                    break 
             except ValueError:
                 print("THIS IS NOT A NUMBER, PREPARE TO BE DISSOLVED")
 
         # Return two valid values
-        return number_of_muffins, number_of_coffees
+        return number_of_muffins, number_of_coffees, number_of_human_fingers, number_of_uranium
 
 
 
 
 
-def printer(coffee, muffins):
-    """Prints out a mock recipt. All math handled in the fstring"""
+def printer(coffee, muffins, human_fingers, uranium):
+    """Prints out a mock receipt. All math handled in the f-string."""
     print("***************************************\n"
           "My Coffee and Muffin Shop\n"
-          "Number of coffees bought?\n"
-          f"{coffee}\n"
           "Number of muffins bought?\n"
           f"{muffins}\n"
+          "Number of coffees bought?\n"
+          f"{coffee}\n"
+          "Number of HUMAN FINGERS bought?\n"
+          f"{human_fingers}\n"
+          "Number of pounds of uranium bought?\n"
+          f"{uranium} pounds\n"
           "***************************************\n\n"
           "***************************************\n"
           "My Coffee and Muffin Shop Receipt\n"
-          # Multiplies price by number purchased and forces two decimal points. 
           f"{coffee} Coffee at $5 each: $ {float(coffee) * 5:.2f}\n"
           f"{muffins} Muffins at $4 each: $ {float(muffins) * 4:.2f}\n"
-          # Multiplies totals by .06 to calculate tax. Forces two decimal points.
-          f"6% tax: $ {(float(coffee) * 5 + float(muffins) * 4) * 0.06:.2f}\n"
+          f"{human_fingers} HUMAN FINGERS at $3 each: $ {float(human_fingers) * 3:.2f}\n"
+          f"{uranium} pounds of uranium at $69.19 each: $ {float(uranium) * 69.19:.2f}\n"
+          f"6% tax: $ {((float(coffee) * 5 + float(muffins) * 4 + float(human_fingers) * 3 + float(uranium) * 69.19) * 0.06):.2f}\n"
           f"---------\n"
-          # Multiplies totals by 1.06 to calculate total + tax. Forces two decimal points.
-          f"Total: $ {(float(coffee) * 5 + float(muffins) * 4) * 1.06:.2f}\n"
-          "***************************************")
+          f"Total: $ {((float(coffee) * 5 + float(muffins) * 4 + float(human_fingers) * 3 + float(uranium) * 69.19) * 1.06):.2f}\n"
+          "***************************************\n\n"
+          "Thank you for your business please don't mention the fingers see you next time")
+
 
 
 
