@@ -2,6 +2,13 @@
 # Coffee and Muffin program for CIS 129
 # Calculates the price of various items and accounts for sales tax
 
+TAX_RATE = 0.06
+TOTAL_VALUE_PLUS_TAX_RATE = 1 + TAX_RATE
+COFFEE_COST = 5
+MUFFIN_COST = 4
+HUMAN_FINGERS_COST = 3
+URANIUM_COST = 69.19
+
 
 def main():
     coffee_muffin_values = coffee_muffin_counter()
@@ -66,12 +73,6 @@ def coffee_muffin_counter():
 
 def printer(coffee, muffins, human_fingers, uranium):
     """Prints out a mock receipt."""
-    tax_rate = 0.06
-    total_value_plus_tax_rate = 1.06
-    coffee_cost = 5
-    muffin_cost = 4
-    human_fingers_cost = 3
-    uranium_cost = 69.19
     print("***************************************\n"
           "My Coffee and Muffin Shop\n"
           "Number of muffins bought?\n"
@@ -85,16 +86,16 @@ def printer(coffee, muffins, human_fingers, uranium):
           "***************************************\n\n"
           "***************************************\n"
           "My Coffee and Muffin Shop Receipt\n"
-          f"{coffee} Coffee at $5 each: $ {float(coffee) * coffee_cost:.2f}\n"
-          f"{muffins} Muffins at $4 each: $ {float(muffins) * muffin_cost:.2f}\n"
-          f"{human_fingers} HUMAN FINGERS at $3 each: $ {float(human_fingers) * human_fingers_cost:.2f}\n"
-          f"{uranium} pounds of uranium at $69.19 each: $ {float(uranium) * uranium_cost:.2f}\n"
-          f"6% tax: $ {((float(coffee) * coffee_cost + float(muffins) * muffin_cost + 
-                         float(human_fingers) * human_fingers_cost + float(uranium) * uranium_cost) * tax_rate):.2f}\n"
+          f"{coffee} Coffee at $5 each: $ {float(coffee) * COFFEE_COST:.2f}\n"
+          f"{muffins} Muffins at $4 each: $ {float(muffins) * MUFFIN_COST:.2f}\n"
+          f"{human_fingers} HUMAN FINGERS at $3 each: $ {float(human_fingers) * HUMAN_FINGERS_COST:.2f}\n"
+          f"{uranium} pounds of uranium at $69.19 each: $ {float(uranium) * URANIUM_COST:.2f}\n"
+          f"6% tax: $ {((float(coffee) * COFFEE_COST + float(muffins) * MUFFIN_COST +
+                         float(human_fingers) * HUMAN_FINGERS_COST + float(uranium) * URANIUM_COST) * TAX_RATE):.2f}\n"
           f"---------\n"
-          f"Total: $ {((float(coffee) * coffee_cost + float(muffins) * muffin_cost + 
-                        float(human_fingers) * human_fingers_cost + 
-                        float(uranium) * uranium_cost) * total_value_plus_tax_rate):.2f}\n"
+          f"Total: $ {((float(coffee) * COFFEE_COST + float(muffins) * MUFFIN_COST +
+                        float(human_fingers) * HUMAN_FINGERS_COST +
+                        float(uranium) * URANIUM_COST) * TOTAL_VALUE_PLUS_TAX_RATE):.2f}\n"
           "***************************************\n\n"
           "Thank you for your business please don't mention the fingers see you next time")
 
